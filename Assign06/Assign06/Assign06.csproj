@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CientViewModel.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="ClientCollection.cs" />
     <Compile Include="ClientRepository.cs" />

@@ -34,5 +34,10 @@ namespace Assign06
             CreditHold = creditHold;
             Notes = notes;
         }
+
+        public Client()
+        {
+
+        }
     }
 }
