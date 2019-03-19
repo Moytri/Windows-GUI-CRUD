@@ -48,6 +48,39 @@ namespace Assign06
 
                         while(reader.Read())
                         {
+                            clientCode = reader["ClientCode"] as string;
+                            companyName = reader["CompanyName"] as string;
+                            address1 = reader["Address1"] as string;
+
+                            if(!reader.IsDBNull(3))
+                            {
+                                address2 = reader["Address2"] as string;
+                            }
+
+                            if (!reader.IsDBNull(4))
+                            {
+                                city = reader["City"] as string;
+                            }
+
+                            province = reader["Province"] as string;
+
+                            if(!reader.IsDBNull(6))
+                            {
+                                postalCode = reader["PostalCode"] as string;
+                            }
+
+                            ytdSales = (decimal)reader["YTDSales"];
+                            creditHold = (bool)reader["CreditHold"];
+
+                            if(!reader.IsDBNull(9))
+                            {
+                                notes = reader["Notes"] as string;
+                            }
+
+                            clientCode = String.Empty; companyName = String.Empty; address1 = String.Empty; address2 = String.Empty;
+                            city = String.Empty; province = String.Empty; postalCode = String.Empty; notes = String.Empty;
+                            ytdSales = 0M;
+                            creditHold = false;
 
                         }
                     }
