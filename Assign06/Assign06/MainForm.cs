@@ -136,6 +136,8 @@ namespace Assign06
         private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Console.WriteLine(":::::::::");
+            EditDialog dlg = new EditDialog();        // create instance of Dialog
+            dlg.ShowDialog();
         }
     }
 }
