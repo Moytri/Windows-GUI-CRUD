@@ -25,17 +25,13 @@ namespace Assign06
             set { this.client = value; OnPropertyChanged(); }
         }
 
-        private ClientCollection Clients { get; }
+        public ClientCollection Clients { get; }
 
         public CientViewModel()
         {
             try
             {
                 this.Clients = ClientRepository.GetClients();
-                foreach(Client c in Clients)
-                {
-                    Console.WriteLine(c.CompanyName);
-                }
                 this.Client = new Client();
             }
             catch (SqlException ex)

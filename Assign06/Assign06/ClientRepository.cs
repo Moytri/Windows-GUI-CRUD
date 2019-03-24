@@ -42,9 +42,9 @@ namespace Assign06
 
                     using(SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        string clientCode, companyName, address1, address2, city, province, postalCode, notes = String.Empty;
+                        string clientCode, companyName, address1, address2 = null, city = null, province, postalCode = null, notes = null;
                         decimal ytdSales;
-                        bool creditHold = false;
+                        bool isCreditHold = false;
 
                         while(reader.Read())
                         {
@@ -70,18 +70,18 @@ namespace Assign06
                             }
 
                             ytdSales = (decimal)reader["YTDSales"];
-                            creditHold = (bool)reader["CreditHold"];
+                            isCreditHold = (bool)reader["CreditHold"];
 
                             if(!reader.IsDBNull(9))
                             {
                                 notes = reader["Notes"] as string;
                             }
 
-                            clientCode = String.Empty; companyName = String.Empty; address1 = String.Empty; address2 = String.Empty;
-                            city = String.Empty; province = String.Empty; postalCode = String.Empty; notes = String.Empty;
-                            ytdSales = 0M;
-                            creditHold = false;
-
+                            clients.Add(new Client(clientCode, companyName, address1, address2, city, province, postalCode, ytdSales, isCreditHold, notes));
+                            address2 = null;
+                            city = null;
+                            postalCode = null;
+                            notes = null;
                         }
                     }
 

@@ -16,12 +16,12 @@ namespace Assign06
         public string Province { get; set; }
         public string PostalCode { get; set; }
         public decimal YTDSales { get; set; }
-        public bool CreditHold { get; set; }
+        public bool IsCreditHold { get; set; }
         public string Notes { get; set; }
 
         public Client(string clientCode, string companyName, string address1, string address2,
                       string city, string province, string postalCode, decimal ytdSales, 
-                      bool creditHold, string notes)
+                      bool isCreditHold, string notes)
         {
             ClientCode = clientCode;
             CompanyName = companyName;
@@ -31,7 +31,7 @@ namespace Assign06
             Province = province;
             PostalCode = postalCode;
             YTDSales = ytdSales;
-            CreditHold = creditHold;
+            IsCreditHold = isCreditHold;
             Notes = notes;
         }
 
