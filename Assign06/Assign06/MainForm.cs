@@ -133,5 +133,9 @@ namespace Assign06
             dataGridViewClients.Columns.Add(notes);
         }
 
+        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
