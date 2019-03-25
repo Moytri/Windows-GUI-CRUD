@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assign06
 {
-    class Client
+    public class Client
     {
         public string ClientCode { get; set; }
         public string CompanyName { get; set; }

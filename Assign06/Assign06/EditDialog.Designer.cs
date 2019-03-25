@@ -41,10 +41,12 @@
             this.labelPostalCode = new System.Windows.Forms.Label();
             this.textBoxPostalCode = new System.Windows.Forms.TextBox();
             this.labelYTDSales = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxYTDSales = new System.Windows.Forms.TextBox();
             this.checkBoxCreditHold = new System.Windows.Forms.CheckBox();
             this.labelNotes = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxNotes = new System.Windows.Forms.TextBox();
+            this.buttonOk = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelCompanyName
@@ -138,9 +140,9 @@
             this.labelPostalCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPostalCode.Location = new System.Drawing.Point(29, 191);
             this.labelPostalCode.Name = "labelPostalCode";
-            this.labelPostalCode.Size = new System.Drawing.Size(75, 13);
+            this.labelPostalCode.Size = new System.Drawing.Size(79, 13);
             this.labelPostalCode.TabIndex = 10;
-            this.labelPostalCode.Text = "P&ostalCode:";
+            this.labelPostalCode.Text = "P&ostal Code:";
             // 
             // textBoxPostalCode
             // 
@@ -159,12 +161,13 @@
             this.labelYTDSales.TabIndex = 12;
             this.labelYTDSales.Text = "&YTDSales:";
             // 
-            // textBox1
+            // textBoxYTDSales
             // 
-            this.textBox1.Location = new System.Drawing.Point(133, 221);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 20);
-            this.textBox1.TabIndex = 13;
+            this.textBoxYTDSales.Location = new System.Drawing.Point(133, 221);
+            this.textBoxYTDSales.Name = "textBoxYTDSales";
+            this.textBoxYTDSales.Size = new System.Drawing.Size(134, 20);
+            this.textBoxYTDSales.TabIndex = 13;
+            this.textBoxYTDSales.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // checkBoxCreditHold
             // 
@@ -187,22 +190,49 @@
             this.labelNotes.TabIndex = 15;
             this.labelNotes.Text = "&Notes:";
             // 
-            // textBox2
+            // textBoxNotes
             // 
-            this.textBox2.Location = new System.Drawing.Point(133, 281);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(240, 20);
-            this.textBox2.TabIndex = 16;
+            this.textBoxNotes.Location = new System.Drawing.Point(133, 281);
+            this.textBoxNotes.Name = "textBoxNotes";
+            this.textBoxNotes.Size = new System.Drawing.Size(240, 20);
+            this.textBoxNotes.TabIndex = 16;
+            // 
+            // buttonOk
+            // 
+            this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOk.Location = new System.Drawing.Point(219, 317);
+            this.buttonOk.Name = "buttonOk";
+            this.buttonOk.Size = new System.Drawing.Size(75, 23);
+            this.buttonOk.TabIndex = 17;
+            this.buttonOk.Text = "OK";
+            this.buttonOk.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(300, 317);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancel.TabIndex = 18;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
             // 
             // EditDialog
             // 
+            this.AcceptButton = this.buttonOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 468);
-            this.Controls.Add(this.textBox2);
+            this.CancelButton = this.buttonCancel;
+            this.ClientSize = new System.Drawing.Size(409, 371);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.buttonOk);
+            this.Controls.Add(this.textBoxNotes);
             this.Controls.Add(this.labelNotes);
             this.Controls.Add(this.checkBoxCreditHold);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxYTDSales);
             this.Controls.Add(this.labelYTDSales);
             this.Controls.Add(this.textBoxPostalCode);
             this.Controls.Add(this.labelPostalCode);
@@ -216,12 +246,14 @@
             this.Controls.Add(this.labelAddress1);
             this.Controls.Add(this.textBoxCompanyName);
             this.Controls.Add(this.labelCompanyName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditDialog";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Client Edit Dialog";
+            this.Load += new System.EventHandler(this.EditDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,9 +274,11 @@
         private System.Windows.Forms.Label labelPostalCode;
         private System.Windows.Forms.TextBox textBoxPostalCode;
         private System.Windows.Forms.Label labelYTDSales;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxYTDSales;
         private System.Windows.Forms.CheckBox checkBoxCreditHold;
         private System.Windows.Forms.Label labelNotes;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxNotes;
+        private System.Windows.Forms.Button buttonOk;
+        private System.Windows.Forms.Button buttonCancel;
     }
 }

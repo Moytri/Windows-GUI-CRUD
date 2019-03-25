@@ -32,6 +32,7 @@
             this.dataGridViewClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonEditRecord = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,7 @@
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.Size = new System.Drawing.Size(776, 357);
             this.dataGridViewClients.TabIndex = 1;
-            this.dataGridViewClients.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClient_CellClick);
+            this.dataGridViewClients.DoubleClick += new System.EventHandler(this.buttonShowEditDialog_Click);
             // 
             // label1
             // 
@@ -58,11 +59,23 @@
             // 
             this.clientBindingSource.DataSource = typeof(Assign06.Client);
             // 
+            // buttonEditRecord
+            // 
+            this.buttonEditRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditRecord.Location = new System.Drawing.Point(670, 420);
+            this.buttonEditRecord.Name = "buttonEditRecord";
+            this.buttonEditRecord.Size = new System.Drawing.Size(118, 23);
+            this.buttonEditRecord.TabIndex = 2;
+            this.buttonEditRecord.Text = "&Edit Record";
+            this.buttonEditRecord.UseVisualStyleBackColor = true;
+            this.buttonEditRecord.Click += new System.EventHandler(this.buttonShowEditDialog_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 469);
+            this.Controls.Add(this.buttonEditRecord);
             this.Controls.Add(this.dataGridViewClients);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -83,6 +96,7 @@
         private System.Windows.Forms.BindingSource clientBindingSource;
         private System.Windows.Forms.DataGridView dataGridViewClients;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonEditRecord;
     }
 }
 

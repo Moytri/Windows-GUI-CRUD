@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assign06
 {
-    class ClientCollection : BindingList<Client>
+    public class ClientCollection : BindingList<Client>
     {
     }
 }

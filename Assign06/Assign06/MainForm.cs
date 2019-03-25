@@ -133,10 +133,15 @@ namespace Assign06
             dataGridViewClients.Columns.Add(notes);
         }
 
-        private void dataGridViewClient_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonShowEditDialog_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(":::::::::");
+            int index = dataGridViewClients.CurrentRow.Index;
+
+            Client client = clientVM.Clients[index];
+            clientVM.SetDisplayClient(client);
+
             EditDialog dlg = new EditDialog();        // create instance of Dialog
+            dlg.ClientVM = clientVM;
             dlg.ShowDialog();
         }
     }

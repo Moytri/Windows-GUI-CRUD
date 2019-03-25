@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Assign06
 {
-    class CientViewModel : INotifyPropertyChanged
+    public class CientViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
