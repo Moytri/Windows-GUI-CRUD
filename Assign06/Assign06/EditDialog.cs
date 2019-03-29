@@ -13,6 +13,8 @@ namespace Assign06
     public partial class EditDialog : Form
     {
         public CientViewModel ClientVM { get; set; }
+        public bool IsEditable { get; set; }
+
         public EditDialog()
         {
             InitializeComponent();
@@ -20,11 +22,16 @@ namespace Assign06
 
         private void EditDialog_Load(object sender, EventArgs e)
         {
-            SetBindings();
+            if(!IsEditable)
+            {
+                SetBindings();
+            }
         }
 
         private void SetBindings()
         {
+            textBoxClientCode.ReadOnly = true;
+            textBoxClientCode.DataBindings.Add("Text", ClientVM, "Client.ClientCode", false, DataSourceUpdateMode.OnValidation);
             textBoxCompanyName.DataBindings.Add("Text", ClientVM, "Client.CompanyName", false, DataSourceUpdateMode.OnValidation);
             textBoxAddress1.DataBindings.Add("Text", ClientVM, "Client.Address1", false, DataSourceUpdateMode.OnValidation);
             textBoxAddress2.DataBindings.Add("Text", ClientVM, "Client.Address2", false, DataSourceUpdateMode.OnValidation, "");
@@ -34,6 +41,11 @@ namespace Assign06
             textBoxYTDSales.DataBindings.Add("Text", ClientVM, "Client.YTDSales", true, DataSourceUpdateMode.OnValidation, "0.00", "#,##0.00;(#,##0.00);0.00");
             textBoxNotes.DataBindings.Add("Text", ClientVM, "Client.Notes", false, DataSourceUpdateMode.OnValidation, "");
             checkBoxCreditHold.DataBindings.Add("Checked", ClientVM, "Client.IsCreditHold", false, DataSourceUpdateMode.OnValidation);
+        }
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.OK;
         }
     }
 }

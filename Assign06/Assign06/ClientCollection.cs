@@ -9,14 +9,8 @@ namespace Assign06
 {
     public class ClientCollection : BindingList<Client>
     {
-        public decimal TotalYTDSales ()
-        {
-            return this.Sum(x => x.YTDSales);
-        }
-
-        public int CreditHoldCount()
-        {
-            return this.Where(x => x.IsCreditHold == true).Count();
-        }
+        public decimal TotalYTDSales => this.Sum(x => x.YTDSales);
+        
+        public int CreditHoldCount => this.Where(x => x.IsCreditHold == true).Count();
     }
 }

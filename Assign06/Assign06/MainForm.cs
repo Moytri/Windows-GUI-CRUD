@@ -49,7 +49,7 @@ namespace Assign06
             clientCode.Name = "clientCode";
             clientCode.DataPropertyName = "ClientCode";
             clientCode.HeaderText = "Client Code";
-            clientCode.Width = 80;
+            clientCode.Width = 50;
             clientCode.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewClients.Columns.Add(clientCode);
 
@@ -99,7 +99,7 @@ namespace Assign06
             postalCode.Name = "postalCode";
             postalCode.DataPropertyName = "PostalCode";
             postalCode.HeaderText = "Postal Code";
-            postalCode.Width = 80;
+            postalCode.Width = 60;
             postalCode.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             postalCode.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             postalCode.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -140,9 +140,23 @@ namespace Assign06
             Client client = clientVM.Clients[index];
             clientVM.SetDisplayClient(client);
 
-            EditDialog dlg = new EditDialog();        // create instance of Dialog
-            dlg.ClientVM = clientVM;
-            dlg.ShowDialog();
+            EditDialog dialog = new EditDialog();        // create instance of Dialog
+            dialog.ClientVM = clientVM;
+            dialog.IsEditable = false;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                clientVM.Clients[index] = clientVM.GetDisplayClient();
+                clientVM.Clients.ResetItem(index);
+            }
+            dialog.Dispose();
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            EditDialog dialog = new EditDialog();
+            dialog.IsEditable = true;
+            dialog.ShowDialog();
         }
     }
 }

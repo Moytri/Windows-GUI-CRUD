@@ -31,8 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridViewClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonEditRecord = new System.Windows.Forms.Button();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buttonAdd = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -55,10 +57,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "&Grid";
             // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(Assign06.Client);
-            // 
             // buttonEditRecord
             // 
             this.buttonEditRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -70,11 +68,38 @@
             this.buttonEditRecord.UseVisualStyleBackColor = true;
             this.buttonEditRecord.Click += new System.EventHandler(this.buttonShowEditDialog_Click);
             // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(Assign06.Client);
+            // 
+            // buttonAdd
+            // 
+            this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdd.Location = new System.Drawing.Point(546, 420);
+            this.buttonAdd.Name = "buttonAdd";
+            this.buttonAdd.Size = new System.Drawing.Size(118, 23);
+            this.buttonAdd.TabIndex = 3;
+            this.buttonAdd.Text = "&Add Record";
+            this.buttonAdd.UseVisualStyleBackColor = true;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.Location = new System.Drawing.Point(422, 420);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(118, 23);
+            this.buttonDelete.TabIndex = 4;
+            this.buttonDelete.Text = "&Delete Record";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 469);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonEditRecord);
             this.Controls.Add(this.dataGridViewClients);
             this.Controls.Add(this.label1);
@@ -97,6 +122,8 @@
         private System.Windows.Forms.DataGridView dataGridViewClients;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonEditRecord;
+        private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }
 
