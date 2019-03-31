@@ -5,8 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assign06.Common;
 
-namespace Assign06
+namespace Assign06.Data
 {
     class ClientRepository
     {

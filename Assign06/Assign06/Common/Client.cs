@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assign06
+namespace Assign06.Common
 {
     public class Client
     {

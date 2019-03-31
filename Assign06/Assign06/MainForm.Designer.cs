@@ -70,7 +70,7 @@
             // 
             // clientBindingSource
             // 
-            this.clientBindingSource.DataSource = typeof(Assign06.Client);
+            //this.clientBindingSource.DataSource = typeof(Assign06.Client);
             // 
             // buttonAdd
             // 
