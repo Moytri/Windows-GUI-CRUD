@@ -47,9 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CientViewModel.cs" />
-    <Compile Include="Client.cs" />
-    <Compile Include="ClientCollection.cs" />
-    <Compile Include="ClientRepository.cs" />
+    <Compile Include="Common\Client.cs" />
+    <Compile Include="Common\ClientCollection.cs" />
+    <Compile Include="Data\ClientRepository.cs" />
     <Compile Include="EditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Business\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
