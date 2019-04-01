@@ -44,7 +44,7 @@
             this.dataGridViewClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewClients.Location = new System.Drawing.Point(12, 44);
             this.dataGridViewClients.Name = "dataGridViewClients";
-            this.dataGridViewClients.Size = new System.Drawing.Size(776, 357);
+            this.dataGridViewClients.Size = new System.Drawing.Size(816, 357);
             this.dataGridViewClients.TabIndex = 1;
             this.dataGridViewClients.DoubleClick += new System.EventHandler(this.buttonShowEditDialog_Click);
             // 
@@ -60,7 +60,7 @@
             // buttonEditRecord
             // 
             this.buttonEditRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditRecord.Location = new System.Drawing.Point(670, 420);
+            this.buttonEditRecord.Location = new System.Drawing.Point(710, 420);
             this.buttonEditRecord.Name = "buttonEditRecord";
             this.buttonEditRecord.Size = new System.Drawing.Size(118, 23);
             this.buttonEditRecord.TabIndex = 2;
@@ -71,7 +71,7 @@
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdd.Location = new System.Drawing.Point(546, 420);
+            this.buttonAdd.Location = new System.Drawing.Point(576, 420);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(118, 23);
             this.buttonAdd.TabIndex = 3;
@@ -82,7 +82,7 @@
             // buttonDelete
             // 
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(422, 420);
+            this.buttonDelete.Location = new System.Drawing.Point(442, 420);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(118, 23);
             this.buttonDelete.TabIndex = 4;
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 469);
+            this.ClientSize = new System.Drawing.Size(840, 469);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonEditRecord);

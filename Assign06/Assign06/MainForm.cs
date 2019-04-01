@@ -60,7 +60,7 @@ namespace Assign06
             companyName.Name = "companyName";
             companyName.DataPropertyName = "CompanyName";
             companyName.HeaderText = "Company Name";
-            companyName.Width = 160;
+            companyName.Width = 120;
             companyName.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewClients.Columns.Add(companyName);
 
@@ -68,7 +68,7 @@ namespace Assign06
             address1.Name = "address1";
             address1.DataPropertyName = "Address1";
             address1.HeaderText = "Address1";
-            address1.Width = 160;
+            address1.Width = 120;
             address1.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewClients.Columns.Add(address1);
 
@@ -76,7 +76,7 @@ namespace Assign06
             address2.Name = "address2";
             address2.DataPropertyName = "Address2";
             address2.HeaderText = "Address2";
-            address2.Width = 100;
+            address2.Width = 70;
             address2.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewClients.Columns.Add(address2);
 
@@ -84,7 +84,7 @@ namespace Assign06
             city.Name = "city";
             city.DataPropertyName = "City";
             city.HeaderText = "City";
-            city.Width = 80;
+            city.Width = 60;
             city.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewClients.Columns.Add(city);
 
