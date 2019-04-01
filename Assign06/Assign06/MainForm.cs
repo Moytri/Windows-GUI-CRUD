@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Assign06.Business;
 using Assign06.Common;
 using Assign06.Data;
 
@@ -137,27 +138,52 @@ namespace Assign06
 
         private void buttonShowEditDialog_Click(object sender, EventArgs e)
         {
-            int index = dataGridViewClients.CurrentRow.Index;
-
-            Client client = clientVM.Clients[index];
-            clientVM.SetDisplayClient(client);
-
-            EditDialog dialog = new EditDialog();        // create instance of Dialog
-            dialog.ClientVM = clientVM;
-            dialog.IsEditable = false;
-
-            if (dialog.ShowDialog() == DialogResult.OK)
+            try
             {
-                client = clientVM.GetDisplayClient();
-                ClientRepository.UpdateClient(client);
-                // clientVM.Clients[index] = client;
-                // clientVM.Clients.ResetItem(index);
-                clientVM.Clients = ClientRepository.GetClients();
-                clientVM.Clients.ResetItem(index);
-                dataGridViewClients.DataSource = clientVM.Clients;
-                dataGridViewClients.Rows[index].Selected = true;
+                int index = dataGridViewClients.CurrentRow.Index;
+
+                Client client = clientVM.Clients[index];
+                clientVM.SetDisplayClient(client);
+
+                EditDialog dialog = new EditDialog();        // create instance of Dialog
+                dialog.ClientVM = clientVM;
+                dialog.IsEditable = false;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    client = clientVM.GetDisplayClient();
+                    int rowsAffected = ClientValidation.UpdateClient(client);
+
+                    if(rowsAffected > 0)
+                    {
+                        clientVM.Clients = ClientValidation.GetClients();
+                        clientVM.Clients.ResetItem(index);
+                        dataGridViewClients.DataSource = clientVM.Clients;
+                        dataGridViewClients.Rows[index].Selected = true;
+                    }
+                    else
+                    {
+                        if (rowsAffected == -1)
+                        {
+                            MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                dialog.Dispose();
             }
-            dialog.Dispose();
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
@@ -174,11 +200,30 @@ namespace Assign06
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     client = clientVM.GetDisplayClient();
-                    ClientRepository.AddClient(client);
-                    clientVM.Clients = ClientRepository.GetClients();
-                    dataGridViewClients.DataSource = clientVM.Clients;
+                    int rowsAffected = ClientValidation.AddClient(client);
+
+                    if(rowsAffected > 0)
+                    {
+                        clientVM.Clients = ClientValidation.GetClients();
+                        dataGridViewClients.DataSource = clientVM.Clients;
+                    }
+                    else
+                    {
+                        if (rowsAffected == -1)
+                        {
+                            MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
                 dialog.Dispose();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -192,15 +237,14 @@ namespace Assign06
             {
                 int index = dataGridViewClients.CurrentRow.Index;
                 Client client = clientVM.Clients[index];
-                ClientRepository.DeleteClient(client);
-                clientVM.Clients = ClientRepository.GetClients();
+                ClientValidation.DeleteClient(client);
+                clientVM.Clients = ClientValidation.GetClients();
                 dataGridViewClients.DataSource = clientVM.Clients;
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
