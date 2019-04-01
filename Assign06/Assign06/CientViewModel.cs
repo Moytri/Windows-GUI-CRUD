@@ -15,7 +15,7 @@ namespace Assign06
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        private void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -23,11 +23,11 @@ namespace Assign06
         private Client client;
         public Client Client
         {
-            get { return this.client; }
-            set { this.client = value; OnPropertyChanged(); }
+            get { return client; }
+            set { client = value; OnPropertyChanged("Client"); }
         }
 
-        public ClientCollection Clients { get; }
+        public ClientCollection Clients { get; set; }
 
         public CientViewModel()
         {
@@ -48,12 +48,25 @@ namespace Assign06
         }
         public void SetDisplayClient(Client client)
         {
-            this.Client = client;
+            Client = new Client
+            {
+                ClientCode = client.ClientCode,
+                CompanyName = client.CompanyName,
+                Address1 = client.Address1,
+                Address2 = client.Address2,
+                City = client.City,
+                Province = client.Province,
+                PostalCode = client.PostalCode,
+                YTDSales = client.YTDSales,
+                IsCreditHold = client.IsCreditHold,
+                Notes = client.Notes
+            };
         }
 
         public Client GetDisplayClient()
         {
-            return this.Client;
+            OnPropertyChanged("Client");
+            return Client;
         }
     }
 }

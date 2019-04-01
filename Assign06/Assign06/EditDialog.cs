@@ -24,13 +24,18 @@ namespace Assign06
         {
             if(!IsEditable)
             {
+                textBoxClientCode.ReadOnly = true;
+                SetBindings();
+            }
+            else
+            {
+                textBoxClientCode.ReadOnly = false;
                 SetBindings();
             }
         }
 
         private void SetBindings()
         {
-            textBoxClientCode.ReadOnly = true;
             textBoxClientCode.DataBindings.Add("Text", ClientVM, "Client.ClientCode", false, DataSourceUpdateMode.OnValidation);
             textBoxCompanyName.DataBindings.Add("Text", ClientVM, "Client.CompanyName", false, DataSourceUpdateMode.OnValidation);
             textBoxAddress1.DataBindings.Add("Text", ClientVM, "Client.Address1", false, DataSourceUpdateMode.OnValidation);

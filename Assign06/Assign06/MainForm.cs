@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Assign06.Common;
+using Assign06.Data;
 
 namespace Assign06
 {
@@ -27,8 +28,7 @@ namespace Assign06
         }
 
         private void setBindings()
-        {
- 
+        { 
             dataGridViewClients.AutoGenerateColumns = false;
             dataGridViewClients.DataSource = clientVM.Clients;
         }
@@ -147,17 +147,42 @@ namespace Assign06
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                clientVM.Clients[index] = clientVM.GetDisplayClient();
+                client = clientVM.GetDisplayClient();
+                ClientRepository.UpdateClient(client);
+                // clientVM.Clients[index] = client;
+                // clientVM.Clients.ResetItem(index);
+                clientVM.Clients = ClientRepository.GetClients();
                 clientVM.Clients.ResetItem(index);
+                dataGridViewClients.DataSource = clientVM.Clients;
+                dataGridViewClients.Rows[index].Selected = true;
             }
             dialog.Dispose();
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            EditDialog dialog = new EditDialog();
-            dialog.IsEditable = true;
-            dialog.ShowDialog();
+            try
+            {
+                //Client client = new Client();
+                //clientVM.SetDisplayClient(client);
+
+                EditDialog dialog = new EditDialog();
+                dialog.ClientVM = clientVM;
+                dialog.IsEditable = true;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Client client = clientVM.GetDisplayClient();
+                    ClientRepository.AddClient(client);
+                    clientVM.Clients = ClientRepository.GetClients();
+                    dataGridViewClients.DataSource = clientVM.Clients;
+                }
+                dialog.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
