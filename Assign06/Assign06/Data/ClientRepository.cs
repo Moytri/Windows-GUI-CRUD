@@ -110,6 +110,32 @@ namespace Assign06.Data
             }
         }
 
+        /// <summary>
+        /// Deletes client from SQL repository
+        /// </summary>
+        /// <param name="client"></param>
+        /// <returns>Returns number of rows affected</returns>
+        public static int DeleteClient(Client client)
+        {
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                string query = $@"DELETE {clientTableName}
+                                 WHERE ClientCode = @clientCode";
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = query;
+                    cmd.Connection = conn;
+                    cmd.Parameters.AddWithValue("@clientCode", client.ClientCode);
+
+                    conn.Open();
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    return rowsAffected;
+                }
+            }
+        }
         public static ClientCollection GetClients()
         {
             ClientCollection clients;

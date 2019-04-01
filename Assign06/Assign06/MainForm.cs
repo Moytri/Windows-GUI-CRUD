@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -90,7 +91,7 @@ namespace Assign06
             province.Name = "province";
             province.DataPropertyName = "Province";
             province.HeaderText = "Province";
-            province.Width = 60;
+            province.Width = 55;
             province.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             province.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             province.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -100,7 +101,7 @@ namespace Assign06
             postalCode.Name = "postalCode";
             postalCode.DataPropertyName = "PostalCode";
             postalCode.HeaderText = "Postal Code";
-            postalCode.Width = 60;
+            postalCode.Width = 55;
             postalCode.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             postalCode.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             postalCode.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -121,7 +122,7 @@ namespace Assign06
             creditHold.Name = "creditHold";
             creditHold.DataPropertyName = "IsCreditHold";
             creditHold.HeaderText = "Credit Hold";
-            creditHold.Width = 80;
+            creditHold.Width = 45;
             creditHold.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewClients.Columns.Add(creditHold);
 
@@ -163,8 +164,8 @@ namespace Assign06
         {
             try
             {
-                //Client client = new Client();
-                //clientVM.SetDisplayClient(client);
+                Client client = new Client();
+                clientVM.SetDisplayClient(client);
 
                 EditDialog dialog = new EditDialog();
                 dialog.ClientVM = clientVM;
@@ -172,7 +173,7 @@ namespace Assign06
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Client client = clientVM.GetDisplayClient();
+                    client = clientVM.GetDisplayClient();
                     ClientRepository.AddClient(client);
                     clientVM.Clients = ClientRepository.GetClients();
                     dataGridViewClients.DataSource = clientVM.Clients;
@@ -183,6 +184,28 @@ namespace Assign06
             {
                 MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = dataGridViewClients.CurrentRow.Index;
+                Client client = clientVM.Clients[index];
+                ClientRepository.DeleteClient(client);
+                clientVM.Clients = ClientRepository.GetClients();
+                dataGridViewClients.DataSource = clientVM.Clients;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show(ex.Message, "DB Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

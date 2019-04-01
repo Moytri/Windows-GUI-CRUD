@@ -68,10 +68,6 @@
             this.buttonEditRecord.UseVisualStyleBackColor = true;
             this.buttonEditRecord.Click += new System.EventHandler(this.buttonShowEditDialog_Click);
             // 
-            // clientBindingSource
-            // 
-            //this.clientBindingSource.DataSource = typeof(Assign06.Common.Client);
-            // 
             // buttonAdd
             // 
             this.buttonAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -92,6 +88,7 @@
             this.buttonDelete.TabIndex = 4;
             this.buttonDelete.Text = "&Delete Record";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // MainForm
             // 
