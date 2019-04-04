@@ -50,6 +50,7 @@
     <Compile Include="CientViewModel.cs" />
     <Compile Include="Common\Client.cs" />
     <Compile Include="Common\ClientCollection.cs" />
+    <Compile Include="Common\Mode.cs" />
     <Compile Include="Data\ClientRepository.cs" />
     <Compile Include="EditDialog.cs">
       <SubType>Form</SubType>

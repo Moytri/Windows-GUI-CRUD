@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assign06.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace Assign06
     {
         public CientViewModel ClientVM { get; set; }
         public bool IsEditable { get; set; }
+        public Mode Mode;
 
         public EditDialog()
         {
@@ -22,7 +24,7 @@ namespace Assign06
 
         private void EditDialog_Load(object sender, EventArgs e)
         {
-            if(!IsEditable)
+            if(Mode.Equals(Mode.Edit))
             {
                 textBoxClientCode.ReadOnly = true;
                 SetBindings();

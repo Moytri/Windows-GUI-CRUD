@@ -148,6 +148,7 @@ namespace Assign06
                 EditDialog dialog = new EditDialog();        // create instance of Dialog
                 dialog.ClientVM = clientVM;
                 dialog.IsEditable = false;
+                dialog.Mode = Mode.Edit;
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -195,7 +196,7 @@ namespace Assign06
 
                 EditDialog dialog = new EditDialog();
                 dialog.ClientVM = clientVM;
-                dialog.IsEditable = true;
+                dialog.Mode = Mode.Add;
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
