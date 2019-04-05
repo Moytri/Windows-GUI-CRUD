@@ -46,12 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\ClientValidation.cs" />
     <Compile Include="CientViewModel.cs" />
-    <Compile Include="Common\Client.cs" />
-    <Compile Include="Common\ClientCollection.cs" />
-    <Compile Include="Common\Mode.cs" />
-    <Compile Include="Data\ClientRepository.cs" />
     <Compile Include="EditDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +90,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLib\BusinessLib.csproj">
+      <Project>{35a5a672-4289-49db-8a56-18cfff901839}</Project>
+      <Name>BusinessLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

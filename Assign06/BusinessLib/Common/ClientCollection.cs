@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assign06.Common
+namespace BusinessLib.Common
 {
     public class ClientCollection : BindingList<Client>
     {

@@ -6,8 +6,8 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Assign06.Common;
-using Assign06.Data;
+using BusinessLib.Common;
+using BusinessLib.Data;
 
 namespace Assign06
 {

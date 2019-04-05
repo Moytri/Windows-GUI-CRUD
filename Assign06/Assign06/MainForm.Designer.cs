@@ -35,6 +35,8 @@
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
+            this.labelTotalYTDSales = new System.Windows.Forms.Label();
+            this.labelShowTotalYTD = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -42,9 +44,9 @@
             // dataGridViewClients
             // 
             this.dataGridViewClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClients.Location = new System.Drawing.Point(12, 44);
+            this.dataGridViewClients.Location = new System.Drawing.Point(12, 63);
             this.dataGridViewClients.Name = "dataGridViewClients";
-            this.dataGridViewClients.Size = new System.Drawing.Size(816, 357);
+            this.dataGridViewClients.Size = new System.Drawing.Size(816, 338);
             this.dataGridViewClients.TabIndex = 1;
             this.dataGridViewClients.DoubleClick += new System.EventHandler(this.buttonShowEditDialog_Click);
             // 
@@ -90,11 +92,31 @@
             this.buttonDelete.UseVisualStyleBackColor = true;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
+            // labelTotalYTDSales
+            // 
+            this.labelTotalYTDSales.AutoSize = true;
+            this.labelTotalYTDSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalYTDSales.Location = new System.Drawing.Point(538, 47);
+            this.labelTotalYTDSales.Name = "labelTotalYTDSales";
+            this.labelTotalYTDSales.Size = new System.Drawing.Size(100, 13);
+            this.labelTotalYTDSales.TabIndex = 5;
+            this.labelTotalYTDSales.Text = "Total YTDSales:";
+            // 
+            // labelShowTotalYTD
+            // 
+            this.labelShowTotalYTD.AutoSize = true;
+            this.labelShowTotalYTD.Location = new System.Drawing.Point(635, 47);
+            this.labelShowTotalYTD.Name = "labelShowTotalYTD";
+            this.labelShowTotalYTD.Size = new System.Drawing.Size(0, 13);
+            this.labelShowTotalYTD.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 469);
+            this.Controls.Add(this.labelShowTotalYTD);
+            this.Controls.Add(this.labelTotalYTDSales);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.buttonEditRecord);
@@ -121,6 +143,8 @@
         private System.Windows.Forms.Button buttonEditRecord;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Label labelTotalYTDSales;
+        private System.Windows.Forms.Label labelShowTotalYTD;
     }
 }
 

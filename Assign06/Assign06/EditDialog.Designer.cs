@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditDialog));
             this.labelCompanyName = new System.Windows.Forms.Label();
             this.textBoxCompanyName = new System.Windows.Forms.TextBox();
             this.labelAddress1 = new System.Windows.Forms.Label();
@@ -39,7 +41,6 @@
             this.labelProvince = new System.Windows.Forms.Label();
             this.textBoxProvince = new System.Windows.Forms.TextBox();
             this.labelPostalCode = new System.Windows.Forms.Label();
-            this.textBoxPostalCode = new System.Windows.Forms.TextBox();
             this.labelYTDSales = new System.Windows.Forms.Label();
             this.textBoxYTDSales = new System.Windows.Forms.TextBox();
             this.checkBoxCreditHold = new System.Windows.Forms.CheckBox();
@@ -48,7 +49,10 @@
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelClientCode = new System.Windows.Forms.Label();
-            this.textBoxClientCode = new System.Windows.Forms.TextBox();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.maskedTextBoxClientCode = new System.Windows.Forms.MaskedTextBox();
+            this.maskedTextBoxPostalCode = new System.Windows.Forms.MaskedTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // labelCompanyName
@@ -59,7 +63,7 @@
             this.labelCompanyName.Name = "labelCompanyName";
             this.labelCompanyName.Size = new System.Drawing.Size(98, 13);
             this.labelCompanyName.TabIndex = 2;
-            this.labelCompanyName.Text = "C&ompany Name:";
+            this.labelCompanyName.Text = "Co&mpany Name:";
             // 
             // textBoxCompanyName
             // 
@@ -131,6 +135,7 @@
             // 
             // textBoxProvince
             // 
+            this.textBoxProvince.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.textBoxProvince.Location = new System.Drawing.Point(133, 198);
             this.textBoxProvince.Name = "textBoxProvince";
             this.textBoxProvince.Size = new System.Drawing.Size(54, 20);
@@ -144,14 +149,7 @@
             this.labelPostalCode.Name = "labelPostalCode";
             this.labelPostalCode.Size = new System.Drawing.Size(79, 13);
             this.labelPostalCode.TabIndex = 12;
-            this.labelPostalCode.Text = "P&ostal Code:";
-            // 
-            // textBoxPostalCode
-            // 
-            this.textBoxPostalCode.Location = new System.Drawing.Point(133, 231);
-            this.textBoxPostalCode.Name = "textBoxPostalCode";
-            this.textBoxPostalCode.Size = new System.Drawing.Size(108, 20);
-            this.textBoxPostalCode.TabIndex = 13;
+            this.labelPostalCode.Text = "Po&stal Code:";
             // 
             // labelYTDSales
             // 
@@ -196,6 +194,7 @@
             // 
             this.textBoxNotes.AcceptsReturn = true;
             this.textBoxNotes.AcceptsTab = true;
+            this.textBoxNotes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNotes.Location = new System.Drawing.Point(133, 330);
             this.textBoxNotes.Multiline = true;
             this.textBoxNotes.Name = "textBoxNotes";
@@ -207,11 +206,12 @@
             // 
             this.buttonOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOk.Location = new System.Drawing.Point(172, 429);
+            this.errorProvider.SetIconAlignment(this.buttonOk, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this.buttonOk.Location = new System.Drawing.Point(183, 429);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 23);
             this.buttonOk.TabIndex = 19;
-            this.buttonOk.Text = "OK";
+            this.buttonOk.Text = "&OK";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
             // 
@@ -237,13 +237,27 @@
             this.labelClientCode.TabIndex = 0;
             this.labelClientCode.Text = "&Client Code:";
             // 
-            // textBoxClientCode
+            // errorProvider
             // 
-            this.textBoxClientCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxClientCode.Location = new System.Drawing.Point(133, 33);
-            this.textBoxClientCode.Name = "textBoxClientCode";
-            this.textBoxClientCode.Size = new System.Drawing.Size(108, 20);
-            this.textBoxClientCode.TabIndex = 1;
+            this.errorProvider.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this.errorProvider.ContainerControl = this;
+            this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
+            // 
+            // maskedTextBoxClientCode
+            // 
+            this.maskedTextBoxClientCode.Location = new System.Drawing.Point(133, 33);
+            this.maskedTextBoxClientCode.Mask = ">LLLLL";
+            this.maskedTextBoxClientCode.Name = "maskedTextBoxClientCode";
+            this.maskedTextBoxClientCode.Size = new System.Drawing.Size(100, 20);
+            this.maskedTextBoxClientCode.TabIndex = 1;
+            // 
+            // maskedTextBoxPostalCode
+            // 
+            this.maskedTextBoxPostalCode.Location = new System.Drawing.Point(133, 231);
+            this.maskedTextBoxPostalCode.Mask = ">L0L 0L0";
+            this.maskedTextBoxPostalCode.Name = "maskedTextBoxPostalCode";
+            this.maskedTextBoxPostalCode.Size = new System.Drawing.Size(108, 20);
+            this.maskedTextBoxPostalCode.TabIndex = 13;
             // 
             // EditDialog
             // 
@@ -252,7 +266,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(382, 483);
-            this.Controls.Add(this.textBoxClientCode);
+            this.Controls.Add(this.maskedTextBoxPostalCode);
+            this.Controls.Add(this.maskedTextBoxClientCode);
             this.Controls.Add(this.labelClientCode);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonOk);
@@ -261,7 +276,6 @@
             this.Controls.Add(this.checkBoxCreditHold);
             this.Controls.Add(this.textBoxYTDSales);
             this.Controls.Add(this.labelYTDSales);
-            this.Controls.Add(this.textBoxPostalCode);
             this.Controls.Add(this.labelPostalCode);
             this.Controls.Add(this.textBoxProvince);
             this.Controls.Add(this.labelProvince);
@@ -281,6 +295,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Client Edit Dialog";
             this.Load += new System.EventHandler(this.EditDialog_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,7 +314,6 @@
         private System.Windows.Forms.Label labelProvince;
         private System.Windows.Forms.TextBox textBoxProvince;
         private System.Windows.Forms.Label labelPostalCode;
-        private System.Windows.Forms.TextBox textBoxPostalCode;
         private System.Windows.Forms.Label labelYTDSales;
         private System.Windows.Forms.TextBox textBoxYTDSales;
         private System.Windows.Forms.CheckBox checkBoxCreditHold;
@@ -308,6 +322,8 @@
         private System.Windows.Forms.Button buttonOk;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelClientCode;
-        private System.Windows.Forms.TextBox textBoxClientCode;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxClientCode;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPostalCode;
     }
 }

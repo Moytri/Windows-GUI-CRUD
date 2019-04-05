@@ -5,11 +5,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Assign06.Common;
+using BusinessLib.Common;
 
-namespace Assign06.Data
+namespace BusinessLib.Data
 {
-    class ClientRepository
+    public class ClientRepository
     {
         //connection string
         private static string connString = @"Server=tcp:skeena.database.windows.net,1433;

@@ -8,15 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Assign06.Business;
-using Assign06.Common;
-using Assign06.Data;
+using BusinessLib.Business;
+using BusinessLib.Common;
+using BusinessLib.Data;
 
 namespace Assign06
 {
     public partial class MainForm : Form
     {
         private CientViewModel clientVM;
+        private ClientCollection clients;
+
         public MainForm()
         {
             InitializeComponent();
@@ -24,9 +26,11 @@ namespace Assign06
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            labelShowTotalYTD.Text = string.Empty;
             clientVM = new CientViewModel();
             setBindings();
             setupDataGridView();
+            showCalculatedData();
         }
 
         private void setBindings()
@@ -153,26 +157,28 @@ namespace Assign06
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     client = clientVM.GetDisplayClient();
-                    int rowsAffected = ClientValidation.UpdateClient(client);
+                   // int rowsAffected = ClientValidation.UpdateClient(client);
 
-                    if(rowsAffected > 0)
-                    {
+                   // if(rowsAffected > 0)
+                   // {
                         clientVM.Clients = ClientValidation.GetClients();
                         clientVM.Clients.ResetItem(index);
                         dataGridViewClients.DataSource = clientVM.Clients;
                         dataGridViewClients.Rows[index].Selected = true;
-                    }
-                    else
-                    {
-                        if (rowsAffected == -1)
-                        {
-                            MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                   // }
+                    //else
+                    //{
+                    //    if (rowsAffected == -1)
+                    //    {
+                    //        dialog.NumberOfAffectedRows = -1;
+                    //        //MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //        //dialog.errorProvider.SetError(buttonSave, ProductValidation.ErrorMessage);
+                    //    }
+                    //    else
+                    //    {
+                    //        //MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    }
+                    //}
                 }
                 dialog.Dispose();
             }
@@ -201,24 +207,26 @@ namespace Assign06
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     client = clientVM.GetDisplayClient();
-                    int rowsAffected = ClientValidation.AddClient(client);
+                    //int rowsAffected = ClientValidation.AddClient(client);
 
-                    if(rowsAffected > 0)
-                    {
+                  //  if(rowsAffected > 0)
+                   // {
                         clientVM.Clients = ClientValidation.GetClients();
                         dataGridViewClients.DataSource = clientVM.Clients;
-                    }
-                    else
-                    {
-                        if (rowsAffected == -1)
-                        {
-                            MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
+                        showCalculatedData();
+                    //  }
+                    //else
+                    //{
+                    //    if (rowsAffected == -1)
+                    //    {
+                    //        MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //        dialog.NumberOfAffectedRows = -1;
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    }
+                    //}
                 }
                 dialog.Dispose();
             }
@@ -251,6 +259,11 @@ namespace Assign06
                 MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void showCalculatedData()
+        {
+            labelShowTotalYTD.Text = clients.TotalYTDSales.ToString();
         }
     }
 }

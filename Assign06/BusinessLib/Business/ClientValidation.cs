@@ -1,14 +1,15 @@
-﻿using Assign06.Common;
-using Assign06.Data;
+﻿using BusinessLib.Common;
+using BusinessLib.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace Assign06.Business
+namespace BusinessLib.Business
 {
-    class ClientValidation
+    public class ClientValidation
     {
         private static List<string> errotList;
 
@@ -69,27 +70,50 @@ namespace Assign06.Business
 
             bool valid = true;
             errotList.Clear();
+            string regExClientCode = @"[A-Z]{5}$";
+            string regExProvince = @"[A-Z]{2}$";
+            string regExCdnPostalCode = @"^[A-Z]\d[A-Z] \d[A-Z]\d$";
 
             if (string.IsNullOrWhiteSpace(client.ClientCode))
             {
-                errotList.Add("ClientCode cannot be empty");
+                errotList.Add("Entry must have a ClientCode");
                 valid = false;
             }
+            else if (!Regex.IsMatch(client.ClientCode, regExClientCode))
+            {
+                errotList.Add("Client Code must be in the form AAAAA");
+                valid = false;
+            }
+
             if (string.IsNullOrWhiteSpace(client.CompanyName))
             {
                 errotList.Add("CompanyName cannot be empty");
                 valid = false;
             }
+
             if (string.IsNullOrWhiteSpace(client.Address1))
             {
-                errotList.Add("Address1 cannot be empty");
+                errotList.Add("Address1 field cannot be empty");
                 valid = false;
             }
+
             if (string.IsNullOrWhiteSpace(client.Province))
             {
                 errotList.Add("Province cannot be empty");
                 valid = false;
             }
+
+            else if(!Regex.IsMatch(client.Province, regExProvince))
+            {
+                errotList.Add("Valid Format for Province is AA");
+                valid = false;
+            }
+
+            if (!Regex.IsMatch(client.PostalCode, regExCdnPostalCode))
+            {
+                errotList.Add("Postal Code Format is Incorrect");
+            }
+
             if (client.YTDSales < 0.00m)
             {
                 errotList.Add("Year To Date sales must be positive");
