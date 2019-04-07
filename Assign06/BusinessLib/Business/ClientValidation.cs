@@ -63,18 +63,18 @@ namespace BusinessLib.Business
         }
 
         /// <summary>
-        /// Validate the CLient before update and insert record
+        /// Validate the Client before updating and inserting record
+        /// ClientCode cannot be empty
+        /// CompanyName cannot be empty
+        /// Address1 cannot be empty
+        /// Province cannot by empty
+        /// YTDSales cannot be negative
+        /// ClientCode must be uppercase and in the form AAAAA
+        /// Province must be uppercase and in the form AA
+        /// PostalCode must be in the form A9A 9A9
         /// </summary>
-        /// <param name="query, client"></param>
-        /// <returns>Returns number of rows affected</returns>
         private static bool validate(Client client)
         {
-            //ClientCode cannot be empty
-            //CompanyName cannot be empty
-            //Address1 cannot be empty
-            //Province cannot by empty
-            //YTDSales cannot be negative
-
             bool valid = true;
             errotList.Clear();
             string regExClientCode = @"[A-Z]{5}$";
