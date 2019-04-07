@@ -47,7 +47,7 @@ namespace Assign06
             textBoxAddress2.DataBindings.Add("Text", ClientVM, "Client.Address2", false, DataSourceUpdateMode.OnValidation, "");
             textBoxCity.DataBindings.Add("Text", ClientVM, "Client.City", false, DataSourceUpdateMode.OnValidation, "");
             textBoxProvince.DataBindings.Add("Text", ClientVM, "Client.Province", false, DataSourceUpdateMode.OnValidation);
-            maskedTextBoxPostalCode.DataBindings.Add("Text", ClientVM, "Client.PostalCode", false, DataSourceUpdateMode.OnValidation, "");
+            textBoxPostalCode.DataBindings.Add("Text", ClientVM, "Client.PostalCode", false, DataSourceUpdateMode.OnValidation, "");
             textBoxYTDSales.DataBindings.Add("Text", ClientVM, "Client.YTDSales", true, DataSourceUpdateMode.OnValidation, "0.00", "#,##0.00;(#,##0.00);0.00");
             textBoxNotes.DataBindings.Add("Text", ClientVM, "Client.Notes", false, DataSourceUpdateMode.OnValidation, "");
             checkBoxCreditHold.DataBindings.Add("Checked", ClientVM, "Client.IsCreditHold", false, DataSourceUpdateMode.OnValidation);

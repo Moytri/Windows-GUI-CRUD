@@ -116,7 +116,7 @@ namespace BusinessLib.Business
                 valid = false;
             }
 
-            if (!Regex.IsMatch(client?.PostalCode ?? "", regExCdnPostalCode))
+            if (!Regex.IsMatch(client.PostalCode, regExCdnPostalCode))
             {
                 errotList.Add("Postal Code Format is Incorrect");
                 valid = false;
