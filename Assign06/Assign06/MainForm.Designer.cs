@@ -47,7 +47,7 @@
             // dataGridViewClients
             // 
             this.dataGridViewClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClients.Location = new System.Drawing.Point(12, 63);
+            this.dataGridViewClients.Location = new System.Drawing.Point(12, 38);
             this.dataGridViewClients.Name = "dataGridViewClients";
             this.dataGridViewClients.Size = new System.Drawing.Size(816, 338);
             this.dataGridViewClients.TabIndex = 1;
@@ -99,26 +99,27 @@
             // 
             this.labelTotalYTDSales.AutoSize = true;
             this.labelTotalYTDSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalYTDSales.Location = new System.Drawing.Point(490, 46);
+            this.labelTotalYTDSales.Location = new System.Drawing.Point(537, 379);
             this.labelTotalYTDSales.Name = "labelTotalYTDSales";
-            this.labelTotalYTDSales.Size = new System.Drawing.Size(100, 13);
+            this.labelTotalYTDSales.Size = new System.Drawing.Size(75, 13);
             this.labelTotalYTDSales.TabIndex = 5;
-            this.labelTotalYTDSales.Text = "Total YTDSales:";
+            this.labelTotalYTDSales.Text = "Total Sales:";
             // 
             // labelShowTotalYTD
             // 
             this.labelShowTotalYTD.AutoSize = true;
             this.labelShowTotalYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelShowTotalYTD.Location = new System.Drawing.Point(585, 46);
+            this.labelShowTotalYTD.Location = new System.Drawing.Point(608, 379);
             this.labelShowTotalYTD.Name = "labelShowTotalYTD";
-            this.labelShowTotalYTD.Size = new System.Drawing.Size(0, 13);
+            this.labelShowTotalYTD.Size = new System.Drawing.Size(24, 13);
             this.labelShowTotalYTD.TabIndex = 6;
+            //this.labelShowTotalYTD.Text = "es:";
             // 
             // labelCreditHold
             // 
             this.labelCreditHold.AutoSize = true;
             this.labelCreditHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreditHold.Location = new System.Drawing.Point(658, 46);
+            this.labelCreditHold.Location = new System.Drawing.Point(672, 379);
             this.labelCreditHold.Name = "labelCreditHold";
             this.labelCreditHold.Size = new System.Drawing.Size(85, 13);
             this.labelCreditHold.TabIndex = 7;
@@ -128,10 +129,11 @@
             // 
             this.labelCreditHolderCount.AutoSize = true;
             this.labelCreditHolderCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreditHolderCount.Location = new System.Drawing.Point(737, 47);
+            this.labelCreditHolderCount.Location = new System.Drawing.Point(752, 379);
             this.labelCreditHolderCount.Name = "labelCreditHolderCount";
-            this.labelCreditHolderCount.Size = new System.Drawing.Size(0, 13);
+            this.labelCreditHolderCount.Size = new System.Drawing.Size(11, 13);
             this.labelCreditHolderCount.TabIndex = 8;
+            //this.labelCreditHolderCount.Text = " r";
             // 
             // checkBoxDeleteConfirmation
             // 
