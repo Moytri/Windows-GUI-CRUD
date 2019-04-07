@@ -27,6 +27,8 @@ namespace Assign06
         {
             labelShowTotalYTD.Text = string.Empty;
             labelCreditHolderCount.Text = string.Empty;
+            labelClientCount.Text = string.Empty;
+
             clientVM = new CientViewModel();
             setBindings();
             setupDataGridView();
@@ -253,6 +255,7 @@ namespace Assign06
         {
             labelShowTotalYTD.Text = clients.TotalYTDSales.ToString();
             labelCreditHolderCount.Text = clients.CreditHoldCount.ToString();
+            labelClientCount.Text = clients.Count.ToString();
         }
     }
 }

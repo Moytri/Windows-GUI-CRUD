@@ -40,6 +40,8 @@
             this.labelCreditHold = new System.Windows.Forms.Label();
             this.labelCreditHolderCount = new System.Windows.Forms.Label();
             this.checkBoxDeleteConfirmation = new System.Windows.Forms.CheckBox();
+            this.labelTotalClients = new System.Windows.Forms.Label();
+            this.labelClientCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -111,9 +113,8 @@
             this.labelShowTotalYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelShowTotalYTD.Location = new System.Drawing.Point(608, 379);
             this.labelShowTotalYTD.Name = "labelShowTotalYTD";
-            this.labelShowTotalYTD.Size = new System.Drawing.Size(24, 13);
+            this.labelShowTotalYTD.Size = new System.Drawing.Size(0, 13);
             this.labelShowTotalYTD.TabIndex = 6;
-            //this.labelShowTotalYTD.Text = "es:";
             // 
             // labelCreditHold
             // 
@@ -131,9 +132,8 @@
             this.labelCreditHolderCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelCreditHolderCount.Location = new System.Drawing.Point(752, 379);
             this.labelCreditHolderCount.Name = "labelCreditHolderCount";
-            this.labelCreditHolderCount.Size = new System.Drawing.Size(11, 13);
+            this.labelCreditHolderCount.Size = new System.Drawing.Size(0, 13);
             this.labelCreditHolderCount.TabIndex = 8;
-            //this.labelCreditHolderCount.Text = " r";
             // 
             // checkBoxDeleteConfirmation
             // 
@@ -144,11 +144,32 @@
             this.checkBoxDeleteConfirmation.TabIndex = 9;
             this.checkBoxDeleteConfirmation.UseVisualStyleBackColor = true;
             // 
+            // labelTotalClients
+            // 
+            this.labelTotalClients.AutoSize = true;
+            this.labelTotalClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotalClients.Location = new System.Drawing.Point(438, 379);
+            this.labelTotalClients.Name = "labelTotalClients";
+            this.labelTotalClients.Size = new System.Drawing.Size(82, 13);
+            this.labelTotalClients.TabIndex = 10;
+            this.labelTotalClients.Text = "Total Clients:";
+            // 
+            // labelClientCount
+            // 
+            this.labelClientCount.AutoSize = true;
+            this.labelClientCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClientCount.Location = new System.Drawing.Point(516, 379);
+            this.labelClientCount.Name = "labelClientCount";
+            this.labelClientCount.Size = new System.Drawing.Size(0, 13);
+            this.labelClientCount.TabIndex = 11;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 469);
+            this.Controls.Add(this.labelClientCount);
+            this.Controls.Add(this.labelTotalClients);
             this.Controls.Add(this.checkBoxDeleteConfirmation);
             this.Controls.Add(this.labelCreditHolderCount);
             this.Controls.Add(this.labelCreditHold);
@@ -185,6 +206,8 @@
         private System.Windows.Forms.Label labelCreditHold;
         private System.Windows.Forms.Label labelCreditHolderCount;
         private System.Windows.Forms.CheckBox checkBoxDeleteConfirmation;
+        private System.Windows.Forms.Label labelTotalClients;
+        private System.Windows.Forms.Label labelClientCount;
     }
 }
 
