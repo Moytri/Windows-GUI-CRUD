@@ -27,6 +27,8 @@ namespace BusinessLib.Business
             }
         }
 
+        //static constructor
+        //fired only once and fired before any static member access
         static ClientValidation()
         {
             errotList = new List<string>();
@@ -60,6 +62,11 @@ namespace BusinessLib.Business
             return ClientRepository.GetClients();
         }
 
+        /// <summary>
+        /// Validate the CLient before update and insert record
+        /// </summary>
+        /// <param name="query, client"></param>
+        /// <returns>Returns number of rows affected</returns>
         private static bool validate(Client client)
         {
             //ClientCode cannot be empty
@@ -87,7 +94,7 @@ namespace BusinessLib.Business
 
             if (string.IsNullOrWhiteSpace(client.CompanyName))
             {
-                errotList.Add("CompanyName cannot be empty");
+                errotList.Add("Company Name cannot be empty");
                 valid = false;
             }
 
@@ -109,7 +116,7 @@ namespace BusinessLib.Business
                 valid = false;
             }
 
-            if (!Regex.IsMatch(client.PostalCode, regExCdnPostalCode))
+            if (!Regex.IsMatch(client?.PostalCode ?? "", regExCdnPostalCode))
             {
                 errotList.Add("Postal Code Format is Incorrect");
             }

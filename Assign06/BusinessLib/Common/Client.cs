@@ -18,26 +18,5 @@ namespace BusinessLib.Common
         public decimal YTDSales { get; set; }
         public bool IsCreditHold { get; set; }
         public string Notes { get; set; }
-
-        public Client(string clientCode, string companyName, string address1, string address2,
-                      string city, string province, string postalCode, decimal ytdSales, 
-                      bool isCreditHold, string notes)
-        {
-            ClientCode = clientCode;
-            CompanyName = companyName;
-            Address1 = address1;
-            Address2 = address2;
-            City = city;
-            Province = province;
-            PostalCode = postalCode;
-            YTDSales = ytdSales;
-            IsCreditHold = isCreditHold;
-            Notes = notes;
-        }
-
-        public Client()
-        {
-
-        }
     }
 }

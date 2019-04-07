@@ -17,7 +17,6 @@ namespace Assign06
     public partial class MainForm : Form
     {
         private CientViewModel clientVM;
-        private ClientCollection clients;
 
         public MainForm()
         {
@@ -27,16 +26,19 @@ namespace Assign06
         private void MainForm_Load(object sender, EventArgs e)
         {
             labelShowTotalYTD.Text = string.Empty;
+            labelCreditHolderCount.Text = string.Empty;
             clientVM = new CientViewModel();
             setBindings();
             setupDataGridView();
-            showCalculatedData();
         }
 
         private void setBindings()
         { 
             dataGridViewClients.AutoGenerateColumns = false;
-            dataGridViewClients.DataSource = clientVM.Clients;
+
+            //assign CientViewModel Collection as data-source of dataGridViewClients
+            dataGridViewClients.DataSource = clientVM.Clients;  
+            showCalculatedData(clientVM.Clients);
         }
 
         private void setupDataGridView()
@@ -157,28 +159,11 @@ namespace Assign06
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     client = clientVM.GetDisplayClient();
-                   // int rowsAffected = ClientValidation.UpdateClient(client);
-
-                   // if(rowsAffected > 0)
-                   // {
-                        clientVM.Clients = ClientValidation.GetClients();
-                        clientVM.Clients.ResetItem(index);
-                        dataGridViewClients.DataSource = clientVM.Clients;
-                        dataGridViewClients.Rows[index].Selected = true;
-                   // }
-                    //else
-                    //{
-                    //    if (rowsAffected == -1)
-                    //    {
-                    //        dialog.NumberOfAffectedRows = -1;
-                    //        //MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //        //dialog.errorProvider.SetError(buttonSave, ProductValidation.ErrorMessage);
-                    //    }
-                    //    else
-                    //    {
-                    //        //MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    }
-                    //}
+                    clientVM.Clients = ClientValidation.GetClients();
+                    clientVM.Clients.ResetItem(index);
+                    dataGridViewClients.DataSource = clientVM.Clients;
+                    dataGridViewClients.Rows[index].Selected = true;
+                    showCalculatedData(clientVM.Clients);
                 }
                 dialog.Dispose();
             }
@@ -207,26 +192,9 @@ namespace Assign06
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
                     client = clientVM.GetDisplayClient();
-                    //int rowsAffected = ClientValidation.AddClient(client);
-
-                  //  if(rowsAffected > 0)
-                   // {
-                        clientVM.Clients = ClientValidation.GetClients();
-                        dataGridViewClients.DataSource = clientVM.Clients;
-                        showCalculatedData();
-                    //  }
-                    //else
-                    //{
-                    //    if (rowsAffected == -1)
-                    //    {
-                    //        MessageBox.Show(ClientValidation.ErrorMessage, " Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //        dialog.NumberOfAffectedRows = -1;
-                    //    }
-                    //    else
-                    //    {
-                    //        MessageBox.Show("No DB changes were made", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //    }
-                    //}
+                    clientVM.Clients = ClientValidation.GetClients();
+                    dataGridViewClients.DataSource = clientVM.Clients;
+                    showCalculatedData(clientVM.Clients);
                 }
                 dialog.Dispose();
             }
@@ -246,9 +214,11 @@ namespace Assign06
             {
                 int index = dataGridViewClients.CurrentRow.Index;
                 Client client = clientVM.Clients[index];
-                ClientValidation.DeleteClient(client);
+                // ClientValidation.DeleteClient(client);
+                deleteCurrentRecord(client, checkBoxDeleteConfirmation.Checked);
                 clientVM.Clients = ClientValidation.GetClients();
                 dataGridViewClients.DataSource = clientVM.Clients;
+                showCalculatedData(clientVM.Clients);
             }
             catch (SqlException ex)
             {
@@ -261,9 +231,28 @@ namespace Assign06
 
         }
 
-        private void showCalculatedData()
+        private void deleteCurrentRecord(Client client, bool deleteConfirmation)
+        {
+            DialogResult response = DialogResult.None;
+            if(deleteConfirmation)
+            {
+                response = MessageBox.Show("You are about to Delete record with ID: " + client.ClientCode + " ?\nAre you sure?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                ClientValidation.DeleteClient(client);
+            }
+
+            if(response == DialogResult.Yes)
+            {
+                ClientValidation.DeleteClient(client);
+            }
+        }
+
+        private void showCalculatedData(ClientCollection clients)
         {
             labelShowTotalYTD.Text = clients.TotalYTDSales.ToString();
+            labelCreditHolderCount.Text = clients.CreditHoldCount.ToString();
         }
     }
 }

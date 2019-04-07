@@ -46,6 +46,11 @@ namespace BusinessLib.Data
             return processQuery(query, client);
         }
 
+        /// <summary>
+        /// Process the given query
+        /// </summary>
+        /// <param name="query, client"></param>
+        /// <returns>Returns number of rows affected</returns>
         private static int processQuery(string query, Client client)
         {
             int rowsAffected;
@@ -136,6 +141,11 @@ namespace BusinessLib.Data
                 }
             }
         }
+
+        /// <summary>
+        /// Select clients from SQL repository
+        /// </summary>
+        /// <returns>Returns ClientCollection</returns>
         public static ClientCollection GetClients()
         {
             ClientCollection clients;
@@ -163,13 +173,13 @@ namespace BusinessLib.Data
                         decimal ytdSales;
                         bool isCreditHold = false;
 
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             clientCode = reader["ClientCode"] as string;
                             companyName = reader["CompanyName"] as string;
                             address1 = reader["Address1"] as string;
 
-                            if(!reader.IsDBNull(3))
+                            if (!reader.IsDBNull(3))
                             {
                                 address2 = reader["Address2"] as string;
                             }
@@ -181,7 +191,7 @@ namespace BusinessLib.Data
 
                             province = reader["Province"] as string;
 
-                            if(!reader.IsDBNull(6))
+                            if (!reader.IsDBNull(6))
                             {
                                 postalCode = reader["PostalCode"] as string;
                             }
@@ -189,12 +199,25 @@ namespace BusinessLib.Data
                             ytdSales = (decimal)reader["YTDSales"];
                             isCreditHold = (bool)reader["CreditHold"];
 
-                            if(!reader.IsDBNull(9))
+                            if (!reader.IsDBNull(9))
                             {
                                 notes = reader["Notes"] as string;
                             }
 
-                            clients.Add(new Client(clientCode, companyName, address1, address2, city, province, postalCode, ytdSales, isCreditHold, notes));
+                            clients.Add(
+                                new Client { 
+                                    ClientCode = clientCode,
+                                    CompanyName = companyName,
+                                    Address1 = address1,
+                                    Address2 = address2,
+                                    City = city,
+                                    Province = province,
+                                    PostalCode = postalCode,
+                                    YTDSales = ytdSales,
+                                    IsCreditHold = isCreditHold,
+                                    Notes = notes }
+                                );
+
                             address2 = null;
                             city = null;
                             postalCode = null;

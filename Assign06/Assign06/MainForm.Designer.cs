@@ -37,6 +37,9 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.labelTotalYTDSales = new System.Windows.Forms.Label();
             this.labelShowTotalYTD = new System.Windows.Forms.Label();
+            this.labelCreditHold = new System.Windows.Forms.Label();
+            this.labelCreditHolderCount = new System.Windows.Forms.Label();
+            this.checkBoxDeleteConfirmation = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +99,7 @@
             // 
             this.labelTotalYTDSales.AutoSize = true;
             this.labelTotalYTDSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalYTDSales.Location = new System.Drawing.Point(538, 47);
+            this.labelTotalYTDSales.Location = new System.Drawing.Point(490, 46);
             this.labelTotalYTDSales.Name = "labelTotalYTDSales";
             this.labelTotalYTDSales.Size = new System.Drawing.Size(100, 13);
             this.labelTotalYTDSales.TabIndex = 5;
@@ -105,16 +108,48 @@
             // labelShowTotalYTD
             // 
             this.labelShowTotalYTD.AutoSize = true;
-            this.labelShowTotalYTD.Location = new System.Drawing.Point(635, 47);
+            this.labelShowTotalYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelShowTotalYTD.Location = new System.Drawing.Point(585, 46);
             this.labelShowTotalYTD.Name = "labelShowTotalYTD";
             this.labelShowTotalYTD.Size = new System.Drawing.Size(0, 13);
             this.labelShowTotalYTD.TabIndex = 6;
+            // 
+            // labelCreditHold
+            // 
+            this.labelCreditHold.AutoSize = true;
+            this.labelCreditHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreditHold.Location = new System.Drawing.Point(658, 46);
+            this.labelCreditHold.Name = "labelCreditHold";
+            this.labelCreditHold.Size = new System.Drawing.Size(85, 13);
+            this.labelCreditHold.TabIndex = 7;
+            this.labelCreditHold.Text = "Credit Holder:";
+            // 
+            // labelCreditHolderCount
+            // 
+            this.labelCreditHolderCount.AutoSize = true;
+            this.labelCreditHolderCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreditHolderCount.Location = new System.Drawing.Point(737, 47);
+            this.labelCreditHolderCount.Name = "labelCreditHolderCount";
+            this.labelCreditHolderCount.Size = new System.Drawing.Size(0, 13);
+            this.labelCreditHolderCount.TabIndex = 8;
+            // 
+            // checkBoxDeleteConfirmation
+            // 
+            this.checkBoxDeleteConfirmation.AutoSize = true;
+            this.checkBoxDeleteConfirmation.Location = new System.Drawing.Point(420, 424);
+            this.checkBoxDeleteConfirmation.Name = "checkBoxDeleteConfirmation";
+            this.checkBoxDeleteConfirmation.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxDeleteConfirmation.TabIndex = 9;
+            this.checkBoxDeleteConfirmation.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 469);
+            this.Controls.Add(this.checkBoxDeleteConfirmation);
+            this.Controls.Add(this.labelCreditHolderCount);
+            this.Controls.Add(this.labelCreditHold);
             this.Controls.Add(this.labelShowTotalYTD);
             this.Controls.Add(this.labelTotalYTDSales);
             this.Controls.Add(this.buttonDelete);
@@ -145,6 +180,9 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Label labelTotalYTDSales;
         private System.Windows.Forms.Label labelShowTotalYTD;
+        private System.Windows.Forms.Label labelCreditHold;
+        private System.Windows.Forms.Label labelCreditHolderCount;
+        private System.Windows.Forms.CheckBox checkBoxDeleteConfirmation;
     }
 }
 
