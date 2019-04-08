@@ -51,7 +51,7 @@
             this.labelClientCode = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.maskedTextBoxClientCode = new System.Windows.Forms.MaskedTextBox();
-            this.textBoxPostalCode = new System.Windows.Forms.TextBox();
+            this.maskedTextBoxPostalCode = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,13 +251,13 @@
             this.maskedTextBoxClientCode.Size = new System.Drawing.Size(100, 20);
             this.maskedTextBoxClientCode.TabIndex = 1;
             // 
-            // textBoxPostalCode
+            // maskedTextBoxPostalCode
             // 
-            this.textBoxPostalCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBoxPostalCode.Location = new System.Drawing.Point(133, 231);
-            this.textBoxPostalCode.Name = "textBoxPostalCode";
-            this.textBoxPostalCode.Size = new System.Drawing.Size(108, 20);
-            this.textBoxPostalCode.TabIndex = 13;
+            this.maskedTextBoxPostalCode.Location = new System.Drawing.Point(133, 231);
+            this.maskedTextBoxPostalCode.Mask = ">L0L 0L0";
+            this.maskedTextBoxPostalCode.Name = "maskedTextBoxPostalCode";
+            this.maskedTextBoxPostalCode.Size = new System.Drawing.Size(108, 20);
+            this.maskedTextBoxPostalCode.TabIndex = 13;
             // 
             // EditDialog
             // 
@@ -266,7 +266,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.buttonCancel;
             this.ClientSize = new System.Drawing.Size(382, 483);
-            this.Controls.Add(this.textBoxPostalCode);
+            this.Controls.Add(this.maskedTextBoxPostalCode);
             this.Controls.Add(this.maskedTextBoxClientCode);
             this.Controls.Add(this.labelClientCode);
             this.Controls.Add(this.buttonCancel);
@@ -324,6 +324,6 @@
         private System.Windows.Forms.Label labelClientCode;
         private System.Windows.Forms.ErrorProvider errorProvider;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxClientCode;
-        private System.Windows.Forms.TextBox textBoxPostalCode;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxPostalCode;
     }
 }

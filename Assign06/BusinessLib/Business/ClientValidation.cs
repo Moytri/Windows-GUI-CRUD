@@ -116,9 +116,10 @@ namespace BusinessLib.Business
                 valid = false;
             }
 
-            if (!Regex.IsMatch(client.PostalCode, regExCdnPostalCode))
+            //TO DO
+            if (!Regex.IsMatch(client?.PostalCode ?? "", regExCdnPostalCode))
             {
-                errotList.Add("Postal Code Format is Incorrect");
+                errotList.Add("PostalCode must be in the form A9A 9A9");
                 valid = false;
             }
 
