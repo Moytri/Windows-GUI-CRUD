@@ -101,7 +101,7 @@
             // 
             this.labelTotalYTDSales.AutoSize = true;
             this.labelTotalYTDSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalYTDSales.Location = new System.Drawing.Point(537, 379);
+            this.labelTotalYTDSales.Location = new System.Drawing.Point(535, 379);
             this.labelTotalYTDSales.Name = "labelTotalYTDSales";
             this.labelTotalYTDSales.Size = new System.Drawing.Size(75, 13);
             this.labelTotalYTDSales.TabIndex = 5;
@@ -111,10 +111,11 @@
             // 
             this.labelShowTotalYTD.AutoSize = true;
             this.labelShowTotalYTD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelShowTotalYTD.Location = new System.Drawing.Point(608, 379);
+            this.labelShowTotalYTD.Location = new System.Drawing.Point(606, 379);
             this.labelShowTotalYTD.Name = "labelShowTotalYTD";
             this.labelShowTotalYTD.Size = new System.Drawing.Size(0, 13);
             this.labelShowTotalYTD.TabIndex = 6;
+            this.labelShowTotalYTD.Text = "<SumYTD>";
             // 
             // labelCreditHold
             // 
@@ -134,6 +135,7 @@
             this.labelCreditHolderCount.Name = "labelCreditHolderCount";
             this.labelCreditHolderCount.Size = new System.Drawing.Size(0, 13);
             this.labelCreditHolderCount.TabIndex = 8;
+            this.labelCreditHolderCount.Text = "<Holder>";
             // 
             // checkBoxDeleteConfirmation
             // 
@@ -148,7 +150,7 @@
             // 
             this.labelTotalClients.AutoSize = true;
             this.labelTotalClients.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotalClients.Location = new System.Drawing.Point(438, 379);
+            this.labelTotalClients.Location = new System.Drawing.Point(430, 379);
             this.labelTotalClients.Name = "labelTotalClients";
             this.labelTotalClients.Size = new System.Drawing.Size(82, 13);
             this.labelTotalClients.TabIndex = 10;
@@ -158,10 +160,11 @@
             // 
             this.labelClientCount.AutoSize = true;
             this.labelClientCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelClientCount.Location = new System.Drawing.Point(516, 379);
+            this.labelClientCount.Location = new System.Drawing.Point(508, 379);
             this.labelClientCount.Name = "labelClientCount";
             this.labelClientCount.Size = new System.Drawing.Size(0, 13);
             this.labelClientCount.TabIndex = 11;
+            this.labelClientCount.Text = "<N>";
             // 
             // MainForm
             // 
