@@ -121,7 +121,7 @@
             // 
             this.labelCreditHold.AutoSize = true;
             this.labelCreditHold.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreditHold.Location = new System.Drawing.Point(672, 379);
+            this.labelCreditHold.Location = new System.Drawing.Point(680, 379);
             this.labelCreditHold.Name = "labelCreditHold";
             this.labelCreditHold.Size = new System.Drawing.Size(85, 13);
             this.labelCreditHold.TabIndex = 7;
@@ -131,7 +131,7 @@
             // 
             this.labelCreditHolderCount.AutoSize = true;
             this.labelCreditHolderCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCreditHolderCount.Location = new System.Drawing.Point(752, 379);
+            this.labelCreditHolderCount.Location = new System.Drawing.Point(760, 379);
             this.labelCreditHolderCount.Name = "labelCreditHolderCount";
             this.labelCreditHolderCount.Size = new System.Drawing.Size(0, 13);
             this.labelCreditHolderCount.TabIndex = 8;

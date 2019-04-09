@@ -221,7 +221,6 @@ namespace Assign06
             {
                 int index = dataGridViewClients.CurrentRow.Index;
                 Client client = clientVM.Clients[index];
-                // ClientValidation.DeleteClient(client);
                 deleteCurrentRecord(client, checkBoxDeleteConfirmation.Checked);
 
                 clientVM.Clients = ClientValidation.GetClients();
@@ -237,7 +236,6 @@ namespace Assign06
             {
                 MessageBox.Show(ex.Message, "Processing Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         //Delete record and deletion process depends on checkbox status
@@ -262,7 +260,7 @@ namespace Assign06
         //show all the calculated methods of the ClientCollection in corresponding labels
         private void showCalculatedData(ClientCollection clients)
         {
-            labelShowTotalYTD.Text = clients.TotalYTDSales.ToString();
+            labelShowTotalYTD.Text = clients.TotalYTDSales.ToString("#,##0.00");
             labelCreditHolderCount.Text = clients.CreditHoldCount.ToString();
             labelClientCount.Text = clients.Count.ToString();
         }
