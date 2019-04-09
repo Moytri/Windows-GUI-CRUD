@@ -25,6 +25,7 @@ namespace Assign06
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //initially set empty for all the display label 
             labelShowTotalYTD.Text = string.Empty;
             labelCreditHolderCount.Text = string.Empty;
             labelClientCount.Text = string.Empty;
@@ -43,6 +44,9 @@ namespace Assign06
             showCalculatedData(clientVM.Clients);
         }
 
+        /// <summary>
+        /// Formats and organizes the data grid view
+        /// </summary>
         private void setupDataGridView()
         {
             // configure for readonly 
@@ -153,18 +157,21 @@ namespace Assign06
                 Client client = clientVM.Clients[index];
                 clientVM.SetDisplayClient(client);
 
-                EditDialog dialog = new EditDialog();        // create instance of Dialog
+                EditDialog dialog = new EditDialog();        
                 dialog.ClientVM = clientVM;
                 dialog.IsEditable = false;
                 dialog.Mode = Mode.Edit;
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
+                    //After a successful update, show all the clients in the dataGrid, and the updated row will keep selected 
                     client = clientVM.GetDisplayClient();
                     clientVM.Clients = ClientValidation.GetClients();
                     clientVM.Clients.ResetItem(index);
                     dataGridViewClients.DataSource = clientVM.Clients;
                     dataGridViewClients.Rows[index].Selected = true;
+
+                    //show all the calculated methods of the ClientCollection in corresponding labels
                     showCalculatedData(clientVM.Clients);
                 }
                 dialog.Dispose();
@@ -218,6 +225,7 @@ namespace Assign06
                 Client client = clientVM.Clients[index];
                 // ClientValidation.DeleteClient(client);
                 deleteCurrentRecord(client, checkBoxDeleteConfirmation.Checked);
+
                 clientVM.Clients = ClientValidation.GetClients();
                 dataGridViewClients.DataSource = clientVM.Clients;
                 showCalculatedData(clientVM.Clients);
@@ -233,6 +241,7 @@ namespace Assign06
 
         }
 
+        //Delete record and deletion process depends on checkbox status
         private void deleteCurrentRecord(Client client, bool deleteConfirmation)
         {
             DialogResult response = DialogResult.None;

@@ -39,6 +39,9 @@ namespace Assign06
             }
         }
 
+        /// <summary>
+        /// Formats and organizes Edit Dialog View
+        /// </summary>
         private void SetBindings()
         {
             maskedTextBoxClientCode.DataBindings.Add("Text", ClientVM, "Client.ClientCode", false, DataSourceUpdateMode.OnValidation);
@@ -59,7 +62,6 @@ namespace Assign06
             Client client = new Client();
             try
             {
-
                 client = ClientVM.GetDisplayClient();
                 int rowsAffected = 0;
 
