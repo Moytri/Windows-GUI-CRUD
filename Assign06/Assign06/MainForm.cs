@@ -38,8 +38,6 @@ namespace Assign06
         private void setBindings()
         { 
             dataGridViewClients.AutoGenerateColumns = false;
-
-            //assign CientViewModel Collection as data-source of dataGridViewClients
             dataGridViewClients.DataSource = clientVM.Clients;  
             showCalculatedData(clientVM.Clients);
         }
@@ -171,7 +169,6 @@ namespace Assign06
                     dataGridViewClients.DataSource = clientVM.Clients;
                     dataGridViewClients.Rows[index].Selected = true;
 
-                    //show all the calculated methods of the ClientCollection in corresponding labels
                     showCalculatedData(clientVM.Clients);
                 }
                 dialog.Dispose();
@@ -203,6 +200,7 @@ namespace Assign06
                     client = clientVM.GetDisplayClient();
                     clientVM.Clients = ClientValidation.GetClients();
                     dataGridViewClients.DataSource = clientVM.Clients;
+
                     showCalculatedData(clientVM.Clients);
                 }
                 dialog.Dispose();
@@ -228,6 +226,7 @@ namespace Assign06
 
                 clientVM.Clients = ClientValidation.GetClients();
                 dataGridViewClients.DataSource = clientVM.Clients;
+
                 showCalculatedData(clientVM.Clients);
             }
             catch (SqlException ex)
@@ -260,6 +259,7 @@ namespace Assign06
             }
         }
 
+        //show all the calculated methods of the ClientCollection in corresponding labels
         private void showCalculatedData(ClientCollection clients)
         {
             labelShowTotalYTD.Text = clients.TotalYTDSales.ToString();
