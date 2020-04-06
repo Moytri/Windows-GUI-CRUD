@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace Assign06
 {
+	//from develop-1
     public partial class EditDialog : Form
     {
         public CientViewModel ClientVM { get; set; }
